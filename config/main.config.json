@@ -1,0 +1,8 @@
+{
+    "online": true,
+    "enable_google_analytics": false,
+	"enable_logging": true,
+    "contact_email": "support@projecteuler.javafling.org",
+	"admin_pass": "myflpass1234do",
+	"path_general_css": "css/style.css"
+}
