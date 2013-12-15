@@ -1,13 +1,13 @@
 <?php
-	require ('header.php');
+    require ('header.php');
 ?>
 
 <div id="content">
 
 <table style="width:100%" class="noprint">
 <tr>
-	<td><h2>Script GreaseMonkey</h2></td>
-	<td><div style="text-align:right;"><img src="images/greasemonkey.logo.png" title="GreaseMonkey Logo" alt="GreaseMonkey Logo" /></div></td>
+    <td><h2>Script GreaseMonkey</h2></td>
+    <td><div style="text-align:right;"><img src="images/greasemonkey.logo.png" title="GreaseMonkey Logo" alt="GreaseMonkey Logo" /></div></td>
 </tr>
 </table>
 
@@ -25,16 +25,16 @@ comuta între varianta în limba engleză a problemei și varianta în limba rom
 <br />
 
 <p>
-	<object id="Object1" type="application/x-shockwave-flash" data="player_flv_mini.swf" width="854" height="480">
-		<param name="movie" value="player_flv_mini.swf" />
-		<param name="wmode" value="opaque" />
-		<param name="allowScriptAccess" value="sameDomain" />
-		<param name="quality" value="high" />
-		<param name="menu" value="true" />
-		<param name="autoplay" value="false" />
-		<param name="autoload" value="false" />
-		<param name="FlashVars" value="flv=translation.demo.flv&width=854&height=480&autoplay=0&autoload=0&buffer=5&playercolor=000000 &loadingcolor=9b9a9a&buttoncolor=ffffff&slidercolor=ffffff" />
-	</object>
+    <object id="Object1" type="application/x-shockwave-flash" data="player_flv_mini.swf" width="854" height="480">
+        <param name="movie" value="player_flv_mini.swf" />
+        <param name="wmode" value="opaque" />
+        <param name="allowScriptAccess" value="sameDomain" />
+        <param name="quality" value="high" />
+        <param name="menu" value="true" />
+        <param name="autoplay" value="false" />
+        <param name="autoload" value="false" />
+        <param name="FlashVars" value="flv=translation.demo.flv&width=854&height=480&autoplay=0&autoload=0&buffer=5&playercolor=000000 &loadingcolor=9b9a9a&buttoncolor=ffffff&slidercolor=ffffff" />
+    </object>
 </p>
 
 <h3>Cum îl instalez ?</h3>
@@ -44,16 +44,16 @@ căutați ajutor pe Internet (sau sunați un prieten :D) .</p>
 
 <p>
 <ul>
-	<li>Primul lucru care trebuie să-l faceți e să descărcați script-ul propriu zis de aici: <a href="projecteuler.translate.user.js"><b>Descarcă script</b></a>. (click dreapta și alegeți &quot;Save as / Save Link as&quot;)
-		<br />
-		Acest script a fost actualizat ultima oară în <strong>13 Ianuarie 2012</strong>.</li>
-	<li>Faceți drag &amp; drop al fișierului în browser-ul Mozilla Firefox. O să apară o fereastră similară cu cea de mai jos:
-		<br /><br />
-		<img src="images/greasemonkey.install.png" title="Instalare Script" />
-		<br /><br />
-		Apăsați pe butonul "Install". Acum aveți script-ul instalat.
-		</li>
-	<li>Intrați pe <a href="http://projecteuler.net/">ProjectEuler.net</a> și testați funcționalitatea pentru a vă asigura că totul funcționează cum trebuie.</li>
+    <li>Primul lucru care trebuie să-l faceți e să descărcați script-ul propriu zis de aici: <a href="projecteuler.translate.user.js"><b>Descarcă script</b></a>. (click dreapta și alegeți &quot;Save as / Save Link as&quot;)
+        <br />
+        Acest script a fost actualizat ultima oară în <strong>13 Ianuarie 2012</strong>.</li>
+    <li>Faceți drag &amp; drop al fișierului în browser-ul Mozilla Firefox. O să apară o fereastră similară cu cea de mai jos:
+        <br /><br />
+        <img src="images/greasemonkey.install.png" title="Instalare Script" />
+        <br /><br />
+        Apăsați pe butonul "Install". Acum aveți script-ul instalat.
+        </li>
+    <li>Intrați pe <a href="http://projecteuler.net/">ProjectEuler.net</a> și testați funcționalitatea pentru a vă asigura că totul funcționează cum trebuie.</li>
 </ul>
 </p>
 
