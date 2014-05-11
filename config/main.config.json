@@ -1,6 +1,7 @@
 {
     "online": true,
     "enable_google_analytics": false,
+    "enable_mathjax": true,
 	"enable_logging": true,
     "contact_email": "support@projecteuler.javafling.org",
 	"admin_pass": "myflpass1234do",

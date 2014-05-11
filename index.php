@@ -1,9 +1,30 @@
 <?php
-    require ('header.php');
-?>
+require_once 'autoload.php';
+use ProjectEuler\Main\Site;
+use ProjectEuler\Main\PEException;
 
-<div id="content">
-<h2>Despre Project Euler @ RO</h2>
+try {
+    $site = new Site();
+
+    $htmlout = $site->getFullPageTemplate('index.php');
+
+} catch (PEException $ex) {
+    switch ($ex->getType()) {
+        case PEException::ERROR:
+            header('Location: 500.shtml');
+			exit();
+            break;
+        case PEException::SITE_OFFLINE:
+            header('Location: maintenance.shtml');
+			exit();
+            break;
+        default:
+            header('Location: 500.shtml');
+			exit();
+    }
+}
+
+$text = '<h2>Despre Project Euler @ RO</h2>
 
 <h3>Ce e Project Euler @ RO ?</h3>
 <p>Acest site conține o bază de date cu toate problemele de pe <a href="http://projecteuler.net/" target="blank">ProjectEuler.net</a> traduse în limba română.</p>
@@ -35,13 +56,8 @@ această pagină se află și în meniul de sus)</p>
 <div class="clear"></div>
 <br />
 
-<div class="clear"></div>
+<div class="clear"></div>';
 
-</div>
+$htmlout = str_replace('{page_content}', $text, $htmlout);
 
-<?php require ('footer.php'); ?>
-
-</div>
-
-</body>
-</html>
+echo $htmlout;
