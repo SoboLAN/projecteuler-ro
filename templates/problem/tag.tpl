@@ -1,0 +1,1 @@
+<a href="problems.php?tag{tag_id}=1&page=1">{tag_name}</a>
