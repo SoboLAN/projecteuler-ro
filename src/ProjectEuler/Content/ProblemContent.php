@@ -100,8 +100,12 @@ class ProblemContent
                 'FROM translations ' .
                 'WHERE problem_id IN (?, ?)'
             );
-            $statement->bindParam(1, $problemId - 1, PDO::PARAM_INT);
-            $statement->bindParam(2, $problemId + 1, PDO::PARAM_INT);
+            
+            $previousId = $problemId - 1;
+            $nextId = $problemId + 1;
+            
+            $statement->bindParam(1, $previousId, PDO::PARAM_INT);
+            $statement->bindParam(2, $nextId, PDO::PARAM_INT);
             $statement->execute();
         } catch (PDOException $ex) {
             $message = "calling ProblemContent::areNeighboursTranslated with problem id $problemId failed";
