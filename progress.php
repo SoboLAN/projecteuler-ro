@@ -63,4 +63,4 @@ try {
 
 $htmlout = str_replace('{page_content}', $finalContent, $htmlout);
 
-echo $htmlout;    
+echo $htmlout;

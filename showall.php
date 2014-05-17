@@ -1,68 +1,57 @@
 <?php
-    if (! isset ($_GET['translated']))
-    {
-        header ("Location: showall.php?translated=yes");
+
+require_once 'autoload.php';
+
+use ProjectEuler\Main\Site;
+use ProjectEuler\Content\ShowAllContent;
+use ProjectEuler\Renderers\ShowAllRenderer;
+use ProjectEuler\Main\PEException;
+
+if (! isset($_GET['translated'])) {
+    header("Location: showall.php?translated=yes");
+}
+
+$translatedParam = $_GET['translated'];
+if ($translatedParam !== 'yes' && $translatedParam !== 'no') {
+    header("Location: problems.php?page=1");
+} else {
+    $translated = ($translatedParam == 'yes');
+}
+
+try {
+    $site = new Site();
+    $showAllContent = new ShowAllContent();
+    $problems = $showAllContent->getProblems($translated);
+    
+    $tplName = $translated ? 'translated.tpl' : 'not_translated.tpl';
+    $problemTpl = file_get_contents('templates/showall/' . $tplName);
+    
+    $renderer = new ShowAllRenderer();
+    
+    $finalContent = $renderer->renderProblems($problemTpl, $problems);
+    
+    $htmlout = $site->getFullPageTemplate('problems.php');
+    
+} catch (PEException $ex) {
+    switch ($ex->getType()) {
+        case PEException::ERROR:
+            header('Location: 500.shtml');
+			exit();
+            break;
+        case PEException::INVALID_REQUEST:
+            header('Location: 400.shtml');
+			exit();
+            break;
+        case PEException::SITE_OFFLINE:
+            header('Location: maintenance.shtml');
+			exit();
+            break;
+        default:
+            header('Location: 500.shtml');
+			exit();
     }
+}
 
-    $translated = $_GET['translated'];
+$htmlout = str_replace('{page_content}', $finalContent, $htmlout);
 
-    if ($translated !== 'yes' && $translated !== 'no')
-    {
-        header ("Location: problems.php?page=1");
-    }
-
-    require ('header.php');
-
-    require_once ('include/db.class.php');
-
-    $dbconn = new DBConn ();
-
-    $r = $dbconn->executeQuery ('SELECT problem_id, publish_date, ' . ($translated == 'yes' ? 'text_romanian' : 'text_english') .
-                                ' FROM translations' . 
-                                ' WHERE is_translated=' . ($translated == 'yes' ? '1' : '0') .
-                                ' ORDER BY problem_id ASC');
-
-    if (! $r)
-    {
-        die ('SITE ERROR');
-    }
-
-    $htmlout = '<div id="content">
-                ';
-
-    $row = $dbconn->nextRowAssoc ();
-
-    while ($row !== FALSE)
-    {
-        if ($translated == 'yes')
-        {
-            $htmlout .= '<h2><a href="problem.php?id=' . $row['problem_id'] . '">Problema ' . $row['problem_id'] . '</a></h2>
-                        <div style="color:#666;font-size:80%;">' . $row['publish_date'] . '</div>
-                        <div style="border-bottom:1px solid #999;padding-bottom:20px;margin-bottom:20px;" class="problem_content">
-                        ' . $row['text_romanian'] . '
-                        </div>
-                        ';
-        }
-        else
-        {
-            $htmlout .= '<h2>Problema ' . $row['problem_id'] . '</h2>
-                        <div style="color:#666;font-size:80%;">' . $row['publish_date'] . '</div>
-                        <div style="border-bottom:1px solid #999;padding-bottom:20px;margin-bottom:20px;" class="problem_content">
-                        ' . $row['text_english'] . '
-                        </div>
-                        ';
-        }
-
-        $row = $dbconn->nextRowAssoc ();
-    }
-
-    $dbconn->closeConnection ();
-
-    echo $htmlout;
-
-    echo '</div>';
-    require ('footer.php');
-    echo '</div>
-            </body>
-            </html>';
-?>
+echo $htmlout;
