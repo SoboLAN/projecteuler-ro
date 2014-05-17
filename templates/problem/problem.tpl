@@ -1,12 +1,10 @@
 <table style="width:100%" class="noprint">
     <tr>
     <td>
-   		<a href="problem.php?id={previous_id}" style="cursor:pointer;" class="info"><img src="images/{previous_image}" alt="Precedenta" /></a>
+   		{previous_link}
    	</td>
     <td>
-        <div style="text-align:right;">
-            <a href="problem.php?id={next_id}" style="cursor:pointer;" class="info"><img src="images/{next_image}" alt="Următoarea" /></a>
-		</div>
+        {next_link}
     </td>
     </tr>
 </table>

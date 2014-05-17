@@ -1,0 +1,1 @@
+<a href="problem.php?id={previous_id}" style="cursor:pointer;" class="info"><img src="images/{previous_image}" alt="Precedenta" /></a>

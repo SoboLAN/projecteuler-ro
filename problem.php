@@ -39,10 +39,12 @@ try {
     
     $problemTpl = file_get_contents('templates/problem/problem.tpl');
     $tagTpl = file_get_contents('templates/problem/tag.tpl');
+    $prevLinkTpl = file_get_contents('templates/problem/previous_link.tpl');
+    $nextLinkTpl = file_get_contents('templates/problem/next_link.tpl');
     
     $renderer = new ProblemRenderer();
     
-    $renderedProblem = $renderer->renderProblem($problemTpl, $problem, $neighBorsStatus);
+    $renderedProblem = $renderer->renderProblem($problemTpl, $prevLinkTpl, $nextLinkTpl, $problem, $neighBorsStatus);
     $renderedTags = $renderer->renderTags($tagTpl, $tags);
     
     $finalContent = str_replace('{tags}', $renderedTags, $renderedProblem);

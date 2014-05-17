@@ -121,7 +121,7 @@ class ProblemContent
             
             $isTranslated = ($row->is_translated == 1);
             
-            $result[] = array($locator => $isTranslated);
+            $result[$locator] = $isTranslated;
         }
         
         return $result;
