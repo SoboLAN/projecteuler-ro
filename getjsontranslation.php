@@ -1,5 +1,38 @@
 <?php
 
+require_once 'autoload.php';
+
+use ProjectEuler\Content\ProblemContent;
+use ProjectEuler\Main\Database;
+use ProjectEuler\Main\Logger;
+use ProjectEuler\Main\Site;
+use ProjectEuler\Main\PEException;
+
+use PDOException as PDOException;
+
+try {
+    $site = new Site();
+} catch (PEException $ex) {
+   switch ($ex->getType()) {
+        case PEException::ERROR:
+            header('Location: 500.shtml');
+			exit();
+            break;
+        case PEException::INVALID_REQUEST:
+            header('Location: 400.shtml');
+			exit();
+            break;
+        case PEException::SITE_OFFLINE:
+            header('Location: maintenance.shtml');
+			exit();
+            break;
+        default:
+            header('Location: 500.shtml');
+			exit();
+    } 
+}
+
+
 //returns a DOMNode's content, without stripping internal HTML tags
 function DOMinnerHTML($element)
 {
@@ -67,13 +100,13 @@ function getProblemContent($url)
 if (! isset($_GET['problem']) || ! isset($_GET['lang'])) {
     exit(-1);
 }
-    
+
 $problemID = $_GET['problem'];
 $lang = $_GET['lang'];
     
 $available_languages = array('ro', 'en', 'ru', 'es', 'kr');
 
-if (in_array($lang, $available_languages) === FALSE) {
+if (! in_array($lang, $available_languages)) {
     exit(-3);
 }
     
@@ -82,74 +115,88 @@ if (strlen($problemID) > 4 || strpos($problemID, '.') !== false || strpos($probl
     exit(-4);
 }
 
-require_once 'include/peproblem.class.php';
-
-//create the problem object
-$problemObj = PEProblem::withID($problemID);
-
-//if no such problem exists, return 'NONE'
-if ($problemObj === false) {
-    $array = array ('translation' => 'NONE');
-    
-    echo 'processTranslation (' . json_encode($array) . ');';
-    
-    exit(0);
-}
-
 $theData = 'NONE';
 $query = 'NONE';
+
+$problemContent = new ProblemContent();
 
 switch ($lang) {
     case 'ro':    //romanian
     {
-        $theData = $problemObj->isTranslated() ? $problemObj->getTextRO() : 'NONE';
+        $problemData = $problemContent->getProblem($problemID);
         
-        $query = 'UPDATE gmonkeyaccesses SET accesses_ro = accesses_ro + 1 WHERE problem_id = ' . $problemID;
-            
+        if (empty($problemData)) {
+            $array = array ('translation' => 'NONE');
+    
+            echo 'processTranslation (' . json_encode($array) . ');';
+
+            exit(0);
+        }
+        
+        $theData = $problemData['is_translated'] ? $problemData['text_romanian'] : 'NONE';
+        
+        $query = 'UPDATE gmonkeyaccesses SET accesses_ro = accesses_ro + 1 WHERE problem_id = ?';
+        
         break;
     }
     case 'en':    //english
     {
-        $theData = $problemObj->getTextEN();
+        $problemData = $problemContent->getProblem($problemID);
         
-        $query = 'UPDATE gmonkeyaccesses SET accesses_en = accesses_en + 1 WHERE problem_id = ' . $problemID;
+        if (empty($problemData)) {
+            $array = array ('translation' => 'NONE');
+    
+            echo 'processTranslation (' . json_encode($array) . ');';
+
+            exit(0);
+        }
+        
+        $theData = $problemData['text_english'];
+        
+        $query = 'UPDATE gmonkeyaccesses SET accesses_en = accesses_en + 1 WHERE problem_id = ?';
         
         break;
     }
     case 'ru':    //russian
     {
-        $theData = getProblemContent('http://euler.jakumo.org/problems/view/' . $_GET['problem'] . '.html');
+        $theData = getProblemContent('http://euler.jakumo.org/problems/view/' . $problemID . '.html');
         
-        $query = 'UPDATE gmonkeyaccesses SET accesses_ru = accesses_ru + 1 WHERE problem_id = ' . $problemID;
+        $query = 'UPDATE gmonkeyaccesses SET accesses_ru = accesses_ru + 1 WHERE problem_id = ?';
         
         break;
     }
     case 'es':    //spanish
     {
-        $theData = getProblemContent('http://euleres.tk/problems.php?id=' . $_GET['problem']);
+        $theData = getProblemContent('http://euleres.tk/problems.php?id=' . $problemID);
         
-        $query = 'UPDATE gmonkeyaccesses SET accesses_es = accesses_es + 1 WHERE problem_id = ' . $problemID;
+        $query = 'UPDATE gmonkeyaccesses SET accesses_es = accesses_es + 1 WHERE problem_id = ?';
         
         break;
     }
     case 'kr':    //korean
     {
-        $theData = getProblemContent('http://euler.synap.co.kr/prob_detail.php?id=' . $_GET['problem']);
+        $theData = getProblemContent('http://euler.synap.co.kr/prob_detail.php?id=' . $problemID);
         
-        $query = 'UPDATE gmonkeyaccesses SET accesses_kr = accesses_kr + 1 WHERE problem_id = ' . $problemID;
+        $query = 'UPDATE gmonkeyaccesses SET accesses_kr = accesses_kr + 1 WHERE problem_id = ?';
         
         break;
     }
 }
 
 if ($query !== 'NONE' && $theData !== 'NONE') {
-    require_once ('include/db.class.php');
-    
-    $db = new DBConn();
-    
-    $r = $db->executeQuery($query);
-    
-    $db->closeConnection();
+
+    try {
+        $db = Database::getConnection();
+        
+        $statement = $db->prepare($query);
+        $statement->bindParam(1, $problemID, PDO::PARAM_INT);
+        $statement->execute();
+        
+    } catch (PDOException $ex) {
+        $message = "executing $query with problem id $problemID failed";
+        Logger::log("$message: " . $ex->getMessage());
+        exit(0);
+    }
 }
 
 $array = array('translation' => $theData);
