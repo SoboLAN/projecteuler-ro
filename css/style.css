@@ -47,11 +47,6 @@
 	
 	a { color: #777; }
 	a:hover { color: #aaa; }
-
-	#footer a
-	{
-		color: #bbb;
-	}
 }
 
 .clear { clear: both; }
@@ -122,11 +117,12 @@ input[type="radio"]
 	font: 80% Tahoma, Arial, sans-serif;
 }
 
-#footer {
+#footer, #footer a {
    margin-top: 50px;
    text-align:center;
    padding:20px;
    font:11px Verdana,sans-serif;
+   color: #bbb;
 }
 
 var {

@@ -37,6 +37,8 @@
         </div>
 
         <div id="footer" class="noprint">
+            Project Euler RO v{site_version}
+            <br />
             <a href="copyright.php">Copyright &copy; 2012 - 2014. Informatii despre copyright</a>
         </div>
     </div>

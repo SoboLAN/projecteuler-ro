@@ -57,8 +57,8 @@ class Site
                             '';
         
         $tpl = str_replace(
-            array('{css_file}', '{mathjax_script}', '{google_analytics_script}'),
-            array($cssFile, $mathJAXScript, $analyticsScript),
+            array('{css_file}', '{mathjax_script}', '{google_analytics_script}', '{site_version}'),
+            array($cssFile, $mathJAXScript, $analyticsScript, self::$siteVersion),
             $tpl
         );
         
