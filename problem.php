@@ -27,8 +27,13 @@ try {
     
     $problem = $problemContent->getProblem($problemId);
     
-    if (count($problem) == 0) {
-        $message = 'Non-existent problem ID specified when acccessing problem.php';
+    if (count($problem) == 0 || ! $problem['is_translated']) {
+        if (count($problem) == 0) {
+            $message = 'Non-existent problem ID specified when acccessing problem.php';
+        } elseif (! $problem['is_translated']) {
+            $message = 'Not-translated problem requested when acccessing problem.php';
+        }
+        
         Logger::log($message);
         throw new PEException($message, PEException::INVALID_REQUEST);
     }

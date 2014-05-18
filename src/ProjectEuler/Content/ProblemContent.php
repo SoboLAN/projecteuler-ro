@@ -42,7 +42,7 @@ class ProblemContent
             'text_english' => $dbProblem->text_english,
             'publish_date' => $dbProblem->publish_date,
             'last_main_update' => $dbProblem->last_main_update,
-            'is_translated' => $dbProblem->is_translated,
+            'is_translated' => ($dbProblem->is_translated == 1),
             'hits' => $dbProblem->hits
         );
         
