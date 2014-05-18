@@ -1,0 +1,1 @@
+<a href="problems.php?page={page}{tags}" title="Mergi la pagina {page}">{title}</a>

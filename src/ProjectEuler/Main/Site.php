@@ -78,6 +78,6 @@ class Site
      */
     public function isValidID($id)
     {
-        return (strlen($id) <= 4 and ctype_digit($id));
+        return (strlen($id) <= 4 && ctype_digit($id));
     }
 }
