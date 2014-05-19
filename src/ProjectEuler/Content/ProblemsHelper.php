@@ -71,14 +71,14 @@ class ProblemsHelper
             }
         }
         
-        $rebuiltGET = $this->rebuildGET();
+        $rebuiltGET = $this->rebuildGET($page);
         
         $rawGET = $this->getRawGET();
         
         return (strlen($rawGET) == strlen($rebuiltGET));
     }
     
-    public function rebuildGET()
+    public function rebuildGET($page)
     {
         $cleanTags = $this->getCleanTags();
         
@@ -88,7 +88,6 @@ class ProblemsHelper
             $nrPages = $this->content->getNrPages();
             $this->container['nr_pages'] = $nrPages;
         }
-        $page = $_GET['page'];
         
         $isValidPage = $this->isValidPage($page, $nrPages);
         

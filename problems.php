@@ -18,8 +18,10 @@ try {
     $renderer = new ProblemsRenderer();
     $paginationRenderer = new PaginationRenderer();
     
+    $page = $_GET['page'];
+    
     if (! $helper->isValidGET()) {
-        $rebuiltGET = $helper->rebuildGET();
+        $rebuiltGET = $helper->rebuildGET($page);
 
         header("Location: problems.php?$rebuiltGET");
         exit();
@@ -37,7 +39,7 @@ try {
     }
     
     $cleanTags = $helper->getCleanTags();
-    $page = $_GET['page'];
+    
     if (count($cleanTags) == 0) {
         
         $problems = $problemsContent->getProblems($page);
@@ -47,6 +49,12 @@ try {
         $problems = $problemsContent->getFilteredProblems($cleanTags, $page);
         
         $problemsCount = $problemsContent->getFilteredProblemsCount($cleanTags);
+    }
+    
+    if (count($problems) == 0) {
+        $rebuiltGET = $helper->rebuildGET(1);
+        header("Location: problems.php?$rebuiltGET");
+        exit();
     }
     
     $paginator = new Paginator($problemsCount, $maxProblemsPerPage, $page, $paginationWidth);
