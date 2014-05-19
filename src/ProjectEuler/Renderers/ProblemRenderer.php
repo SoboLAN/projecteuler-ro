@@ -53,21 +53,23 @@ class ProblemRenderer extends GeneralRenderer
         return $result;
     }
     
-    public function renderTags($template, $content)
+    public function renderTags($tagBoxTpl, $tagTpl, $tags)
     {
-        if (empty ($content)) {
+        if (empty($tags)) {
             return '';
         }
         
         $renderedTags = '';
-        foreach ($content as $tag) {
+        foreach ($tags as $tag) {
             $renderedTags .= str_replace(
                 array('{tag_id}', '{tag_name}'),
                 array($tag['id'], $tag['name']),
-                $template
+                $tagTpl
             );
         }
         
-        return $renderedTags;
+        $result = str_replace('{tags}', $renderedTags, $tagBoxTpl);
+        
+        return $result;
     }
 }

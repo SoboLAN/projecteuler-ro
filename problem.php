@@ -44,15 +44,16 @@ try {
     
     $problemTpl = file_get_contents('templates/problem/problem.tpl');
     $tagTpl = file_get_contents('templates/problem/tag.tpl');
+    $tagBoxTpl = file_get_contents('templates/problem/tag_box.tpl');
     $prevLinkTpl = file_get_contents('templates/problem/previous_link.tpl');
     $nextLinkTpl = file_get_contents('templates/problem/next_link.tpl');
     
     $renderer = new ProblemRenderer();
     
     $renderedProblem = $renderer->renderProblem($problemTpl, $prevLinkTpl, $nextLinkTpl, $problem, $neighBorsStatus);
-    $renderedTags = $renderer->renderTags($tagTpl, $tags);
+    $renderedTags = $renderer->renderTags($tagBoxTpl, $tagTpl, $tags);
     
-    $finalContent = str_replace('{tags}', $renderedTags, $renderedProblem);
+    $finalContent = str_replace('{tag_box}', $renderedTags, $renderedProblem);
     
     $htmlout = $site->getFullPageTemplate('problems.php');
     
