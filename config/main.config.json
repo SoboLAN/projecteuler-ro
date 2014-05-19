@@ -9,7 +9,5 @@
     "problems.max_per_page": 50,
     "problems.max_tags_per_column": 4,
     "problems.pagination_width": 5,
-    "contact_email": "support@projecteuler.javafling.org",
-	"admin_pass": "myflpass1234do",
 	"path_general_css": "css/style.css"
 }
