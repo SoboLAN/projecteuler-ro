@@ -30,3 +30,7 @@ această pagină se află și în meniul de sus)</p>
 <h3>Unde pot găsi codul sursă al site-ului ?</h3>
 <p>Codul se poate accesa la următoarea adresă: <a href="https://github.com/SoboLAN/projecteuler-ro.git">https://github.com/SoboLAN/projecteuler-ro.git</a>.</p>
 <p>Codul este disponibil sub licența GPL v3 și accept pull-request-uri dacă aveți vreo idee interesantă. De asemenea, versiunea curentă apare în footer-ul site-ului.</p>
+<br />
+
+<h3>Vreau și eu să traduc dar vreau mai întâi să aflu niște detalii despre dimensiunea problemelor. Unde pot găsi asta ?</h3>
+<p>Statistici legate de probleme pot fi văzute pe <a href="statistics.php">această pagină</a>. Aceasta conține informații legate de numărul de caractere din titlul și corpul problemelor.</p>
