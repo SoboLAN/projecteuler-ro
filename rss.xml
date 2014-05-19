@@ -6,11 +6,18 @@
     <atom:link href="http://projecteuler.javafling.org/rss.xml" rel="self" type="application/rss+xml" />
     <link>http://projecteuler.javafling.org</link>
     <description>Traducerile in romana a problemelor de pe ProjectEuler.net</description>
-    <pubDate>Fri, 05 Apr 2013 23:07:31 +0300</pubDate>
+    <pubDate>Mon, 19 May 2014 22:08:31 +0300</pubDate>
     <language>ro</language>
     <sy:updatePeriod>daily</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
 
+<item>
+        <title>Un nou cod - 19 May</title>
+        <link>http://projecteuler.javafling.org/index.php</link>
+        <pubDate>Mon, 19 May 2014 22:08:08 +0300</pubDate>
+        <dc:creator>Murzea Radu</dc:creator>
+        <description><![CDATA[Am refactorizat tot codul intr-un design mai bun si mai solid. Acesta poate fi gasit acum si pe GitHub. Cu exceptia unor mici modificari, site-ul ar trebui sa functioneze la fel ca inainte. Se vor mai face numeroase operatiuni de mentenanta pe codul site-ului in viitorul apropiat.]]></description>
+</item>
 <item>
         <title>Niste mici schimbari - 05 Apr</title>
         <link>http://projecteuler.javafling.org/index.php</link>
