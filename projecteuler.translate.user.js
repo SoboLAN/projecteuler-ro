@@ -112,37 +112,35 @@
 
 
 
-function setNewTranslation (problem, lang)
+function setNewTranslation(problem, lang)
 {
     var script = document.createElement('script');
-
+    
     script.setAttribute('src', 'http://projecteuler.javafling.org/getjsontranslation.php?problem=' + problem + '&lang=' + lang);
-
+    
     document.getElementsByTagName('head')[0].appendChild(script); 
 }
 
-function getProblemID ()
+function getProblemID()
 {
-    var h3Nodes = document.getElementsByTagName ('h3');
-
-    for (var nodeIndex = 0; nodeIndex < h3Nodes.length; nodeIndex++)
-    {
-        var nodePieces = h3Nodes[nodeIndex].innerHTML.split (" ");
-
-        if (nodePieces[0] == "Problem")
-        {
-            var problemID = parseInt (nodePieces[1]);
-
+    var h3Nodes = document.getElementsByTagName('h3');
+    
+    for (var nodeIndex = 0; nodeIndex < h3Nodes.length; nodeIndex++) {
+        var nodePieces = h3Nodes[nodeIndex].innerHTML.split(" ");
+        
+        if (nodePieces[0] === "Problem") {
+            var problemID = parseInt(nodePieces[1]);
+            
             return problemID;
         }
     }
-
+    
     return -1;
 }
 
-function getROFlag ()
+function getROFlag()
 {
-    var RO = document.createElement ("img");
+    var RO = document.createElement("img");
     RO.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHd" +
             "hcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGBSURBVHjaYmTQPs7w6Q8DCDAxMLC8P2DOwcbA8I/hHxix/GD4pw3kIRBAALEwvPtT3aQIV" +
             "P7vH+O//0yc0hWsrD8ZGP78//8HRH75/T/mz//fv///AZFfNm0CCCAWBhYGhv8MT17//vvv/99/TP/+PWJg+P7//28o+vP7/+1f/3/9Aqp" +
@@ -150,27 +148,25 @@ function getROFlag ()
             "5H0gBm/oE5i+PMHaANAAIE0/AUZ//8XUM9fBiQNYBLJSYxgJwEEEEjD778Mv/6A9Pz+wwB1BpoNYOOBbgAGHEAAsTD8BNL/gJqBrvr9lxF" +
             "JA8QGsIY/QA1/Gf7+BfoBIICAofQHqFRShBXkjb/MTEzSDAzfGBmB/gMa95uB5Q+D0h+QUjACOgkggBgZGLYyMPwCS4Nc+HxvMAsLw78/4" +
             "HgFkh8Y/oVD4xgCAAIMACetb51Fz+5FAAAAAElFTkSuQmCC";
-
+    
     RO.alt = "Romania";
     RO.title = "Romanian";
     RO.style.cursor = "pointer";
-
-    RO.onclick = function ()
-    {
-        var problemID = getProblemID ();
-
-        if (! isNaN (problemID) && problemID !== -1)
-        {
-            setNewTranslation (problemID, "ro");
+    
+    RO.onclick = function() {
+        var problemID = getProblemID();
+        
+        if (! isNaN(problemID) && problemID !== -1) {
+            setNewTranslation(problemID, "ro");
         }
-    }
+    };
 
     return RO;
 }
 
-function getKRFlag ()
+function getKRFlag()
 {
-    var KR = document.createElement ("img");
+    var KR = document.createElement("img");
     KR.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHd" + 
             "hcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHDSURBVHjaYjSs/f/lBwME/Pn379cfIMnw6xfDrz9A9r/fIA4SYmMACCDGgzf/q4iBlf///" +
             "5+B4d9/KPMfCIMY/xn+//sH4f4/duMLQAAxfmRgZO/v+/fiFcNfkJkMLEz/v3wB6fn95//fPyDy9+9/f37///WbSUry+ZzZAAHEApRifPW" +
@@ -179,27 +175,25 @@ function getKRFlag ()
             "838+fIEU/f0JVg20AKgYIIKAfGBiBdi1ZwpaY+F9SgkVN7Wdt7f83bxjBZgOdDvEA0HgmIGJgAAggFqAt/3h4/j169K29AxRQwOD78pWBi" +
             "+s/K+s/sDpwKAFj588/QUFghAEEEMups9+1pFlAgQ0Nc0iog6MCLAQR/weSY9hx6jVAADEyx3/9+wEWkcB4BRryC4kLj+l/QDYDAx8DQIA" +
             "BAA2EWORnICKSAAAAAElFTkSuQmCC";
-
+    
     KR.alt = "Korea";
     KR.title = "Korean";
     KR.style.cursor = "pointer";
-
-    KR.onclick = function ()
-    {
-        var problemID = getProblemID ();
-
-        if (! isNaN (problemID) && problemID !== -1)
-        {
-            setNewTranslation (problemID, "kr");
+    
+    KR.onclick = function() {
+        var problemID = getProblemID();
+        
+        if (! isNaN(problemID) && problemID !== -1) {
+            setNewTranslation(problemID, "kr");
         }
-    }
-
+    };
+    
     return KR;
 }
 
-function getESFlag ()
+function getESFlag()
 {
-    var ES = document.createElement ("img");
+    var ES = document.createElement("img");
     ES.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHd" +
             "hcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFnSURBVHjaYvzPgAD/UNlYEUAAmuTYAAAQhAEYqF/zFbe50RZ1cMmS9TLi0pJLRjZohAMTG" +
             "FUN9HdnHgEE1sDw//+Tp0ClINW/f0NIKPoFJH/9//ULyGaUlQXaABBALAx/Gf4zAt31F4i+ffj3/cN/XrFfzOx//v///f//LzACM/79ZmD" +
@@ -207,54 +201,50 @@ function getESFlag ()
             "IdFT/Wz6j+GhlpmXSOW/2z///8Eq/sJ18Dw/zdQA0AAMQExxJjjdy9x2/76EfLz4MXdP/i+wsyGkkA3Aw3984cBIIAYfzIwMKel/bt3jwE" +
             "aLNAwgZIQxp/fDH/+MqqovL14ESCAWICeZvr9h0FSEhSgwBgAygFDEMT+wwAhgQgc4kAEVAwQQIxfUSMSTxxDAECAAQAJWke8v4u1tAAAA" +
             "ABJRU5ErkJggg==";
-
+    
     ES.alt = "Spain";
     ES.title = "Spanish";
     ES.style.cursor = "pointer";
-
-    ES.onclick = function ()
-    {
-        var problemID = getProblemID ();
-
-        if (! isNaN (problemID) && problemID !== -1)
-        {
-            setNewTranslation (problemID, "es");
+    
+    ES.onclick = function() {
+        var problemID = getProblemID();
+        
+        if (! isNaN(problemID) && problemID !== -1) {
+            setNewTranslation(problemID, "es");
         }
-    }
-
+    };
+    
     return ES;
 }
 
-function getRUFlag ()
+function getRUFlag()
 {
-    var RU = document.createElement ("img");
+    var RU = document.createElement("img");
     RU.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHd" +
             "hcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAE2SURBVHjaYvz69T8DAvz79w9CQVj/0MCffwwAAcQClObiAin6/x+okxHMgPCAbOb//5n+I" +
             "4EXL74ABBALxGSwagTjPzbAyMgItAQggBg9Pf9nZPx//x7kjL9////9C2QAyf9//qCQQCQkxFhY+BEggFi2b/+nq8v46BEDSPQ3w+8//3/" +
             "/BqFfv9BJeXmQEwACCOSkP38YgHy4Bog0RN0vIOMXVOTPH6Cv/gEEEEgDxFKgHEgDXCmGDUAE1AAQQCybGZg1f/d8//XsH0jTn3+///z79" +
             "RtE/v4NZfz68xfI/vOX+4/0ZoZFAAHE4gYMvD+3/v2+h91wCANo9Z+/jH9VxBkYAAKIBRg9TL//MEhKAuWAogxgZzGC2CCfgUggAoYdGAE" +
             "VAwQQ41egu5AQAyoXTQoIAAIMAD+JZR7YOGEWAAAAAElFTkSuQmCC";
-
+    
     RU.alt = "Russia";
     RU.title = "Russian";
     RU.style.cursor = "pointer";
-
-    RU.onclick = function ()
-    {
-        var problemID = getProblemID ();
-
-        if (! isNaN (problemID) && problemID !== -1)
-        {
-            setNewTranslation (problemID, "ru");
+    
+    RU.onclick = function() {
+        var problemID = getProblemID();
+        
+        if (! isNaN(problemID) && problemID !== -1) {
+            setNewTranslation(problemID, "ru");
         }
-    }
-
+    };
+    
     return RU;
 }
 
-function getUKFlag ()
+function getUKFlag()
 {
-    var UK = document.createElement ("img");
+    var UK = document.createElement("img");
     UK.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJ" +
             "lYWR5ccllPAAAAflJREFUeNpinDRzn5qN3uFDt16+YWBg+Pv339+KGN0rbVP+//2rW5tf0Hfy/2+mr99+yKpyOl3Ydt8njEWIn8f9zj639" +
             "NC7j78eP//8739GVUUhNUNuhl8//ysKeZrJ/v7z10Zb2PTQTIY1XZO2Xmfad+f7XgkXxuUrVB6cjPVXef78JyMjA8PFuwyX7gAZj97+T2e" +
@@ -263,75 +253,72 @@ function getUKFlag ()
             "vQnT6zqvXPjC8e/srJQHo9P9fvwNtAHmG4f8zZ6dDc3bIyM2LTNlsbtfM9OPHH3FhtqUz3eXX9H+cOy9ZMB2o6t/Pn0DHMPz/b+2wXGTvP" +
             "lPGFxdcD+mZyjP8+8MUE6sa7a/xo6Pykn1s4zdzIZ6///8zMGpKM2pKAB0jqy4UE7/msKat6Jw5mafrsxNtWZ6/fjvNLW29qv25pQd///n" +
             "+5+/fxDDVbcc//P/zx/36m5Ub9zL8+7t66yEROcHK7q5bldMBAgwADcRBCuVLfoEAAAAASUVORK5CYII=";
-
+    
     UK.alt = "United Kingdom";
     UK.title = "British English";
     UK.style.cursor = "pointer";
-
-    UK.onclick = function ()
-    {
-        var problemID = getProblemID ();
-
-        if (! isNaN (problemID) && problemID !== -1)
-        {
-            setNewTranslation (problemID, "en");
+    
+    UK.onclick = function() {
+        var problemID = getProblemID();
+        
+        if (! isNaN(problemID) && problemID !== -1) {
+            setNewTranslation(problemID, "en");
         }
-    }
-
+    };
+    
     return UK;
 }
 
-function insertFlags ()
+function insertFlags()
 {
-    var UK = getUKFlag ();    //UK
-    var RO = getROFlag ();    //Romania
-    var RU = getRUFlag ();    //Russia
-    var ES = getESFlag ();    //Spain
-    var KR = getKRFlag ();    //Korea
-
-    var flagsParagraph = document.createElement ("p");
-
+    var UK = getUKFlag();    //UK
+    var RO = getROFlag();    //Romania
+    var RU = getRUFlag();    //Russia
+    var ES = getESFlag();    //Spain
+    var KR = getKRFlag();    //Korea
+    
+    var flagsParagraph = document.createElement("p");
+    
     UK.style.marginRight = "12px";
     RO.style.marginRight = "12px";
     RU.style.marginRight = "12px";
     ES.style.marginRight = "12px";
-
-    flagsParagraph.appendChild (UK);
-    flagsParagraph.appendChild (RO);
-    flagsParagraph.appendChild (RU);
-    flagsParagraph.appendChild (ES);
-    flagsParagraph.appendChild (KR);
-
+    
+    flagsParagraph.appendChild(UK);
+    flagsParagraph.appendChild(RO);
+    flagsParagraph.appendChild(RU);
+    flagsParagraph.appendChild(ES);
+    flagsParagraph.appendChild(KR);
+    
     flagsParagraph.style.display = "block";
     flagsParagraph.style.marginLeft = "auto";
     flagsParagraph.style.marginRight = "auto";
     flagsParagraph.style.textAlign = "center";
-
+    
     // reference node
     var refNode = document.getElementById("content");
-
+    
     // insert before
     refNode.parentNode.insertBefore(flagsParagraph, refNode);
 }
 
-function insertTranslationProcessing ()
+function insertTranslationProcessing()
 {
-    var pscript = document.createElement ('script');
-
-    pscript.setAttribute ('type', 'text/javascript');
-
-    pscript.setAttribute ('src', 'http://projecteuler.javafling.org/processtranslation.js');
-
+    var pscript = document.createElement('script');
+    
+    pscript.setAttribute('type', 'text/javascript');
+    
+    pscript.setAttribute('src', 'http://projecteuler.javafling.org/processtranslation.js');
+    
     var bodyElement = document.getElementsByTagName('body')[0];
-
-    bodyElement.insertBefore (pscript, bodyElement.firstChild);
+    
+    bodyElement.insertBefore(pscript, bodyElement.firstChild);
 }
 
-var problemID = getProblemID ();
+var problemID = getProblemID();
 
-if (! isNaN (problemID) && problemID !== -1)
-{
-    insertFlags ();
-
-    insertTranslationProcessing ();
+if (! isNaN(problemID) && problemID !== -1) {
+    insertFlags();
+    
+    insertTranslationProcessing();
 }
