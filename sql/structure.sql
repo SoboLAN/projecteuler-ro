@@ -63,12 +63,6 @@ CREATE TABLE IF NOT EXISTS `translations` (
 --
 
 --
--- Constraints for table `solutions`
---
-ALTER TABLE `solutions`
-  ADD CONSTRAINT `solutions_ibfk_1` FOREIGN KEY (`problem_id`) REFERENCES `translations` (`problem_id`);
-
---
 -- Constraints for table `tag_mappings`
 --
 ALTER TABLE `tag_mappings`
