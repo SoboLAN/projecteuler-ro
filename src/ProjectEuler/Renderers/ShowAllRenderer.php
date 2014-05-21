@@ -10,17 +10,13 @@ class ShowAllRenderer extends GeneralRenderer
     {
         $result = '';
         foreach ($problems as $problem) {
+            
+            $publishDateString = date('d F Y', $problem['publish_date']);
+            $publishDateTranslated = $this->translateDate($publishDateString);
+            
             $result .= str_replace(
-                array(
-                    '{problem_id}',
-                    '{problem_body}',
-                    '{publish_date}'
-                ),
-                array(
-                    $problem['id'],
-                    $problem['text'],
-                    $problem['publish_date']
-                ),
+                array('{problem_id}', '{problem_body}', '{publish_date}'),
+                array($problem['id'], $problem['text'], $publishDateTranslated),
                 $template
             );
         }

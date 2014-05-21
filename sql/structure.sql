@@ -1,5 +1,3 @@
--- --------------------------------------------------------
-
 --
 -- Table structure for table `gmonkeyaccesses`
 --
@@ -51,8 +49,8 @@ CREATE TABLE IF NOT EXISTS `translations` (
   `title_romanian` varchar(200) CHARACTER SET utf8 COLLATE utf8_romanian_ci DEFAULT NULL,
   `text_english` text CHARACTER SET utf8 NOT NULL,
   `text_romanian` text CHARACTER SET utf8 COLLATE utf8_romanian_ci,
-  `publish_date` varchar(20) CHARACTER SET ascii NOT NULL,
-  `last_main_update` datetime NOT NULL,
+  `publish_date` int(11) NOT NULL,
+  `last_update` int(11) NOT NULL,
   `is_translated` tinyint(1) NOT NULL,
   `hits` mediumint(8) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`problem_id`)

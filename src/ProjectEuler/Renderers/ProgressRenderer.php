@@ -104,9 +104,12 @@ class ProgressRenderer extends GeneralRenderer
                 $theProblem = $problems[$j - 1];
                 if ($theProblem['is_translated']) {
                     
+                    $publishDateString = date('d F Y', $theProblem['publish_date']);
+                    $publishDateTranslated = $this->translateDate($publishDateString);
+                    
                     $result .= str_replace(
                         array('{problem_id}', '{publish_date}', '{problem_title}'),
-                        array($theProblem['id'], $theProblem['publish_date'], $theProblem['title_romanian']),
+                        array($theProblem['id'], $publishDateTranslated, $theProblem['title_romanian']),
                         $translatedCellTpl
                     );
                 } else {

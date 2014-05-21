@@ -30,6 +30,9 @@ class ProblemRenderer extends GeneralRenderer
             );
         }
         
+        $publishDateString = date('d F Y', $content['publish_date']);
+        $publishDateTranslated = $this->translateDate($publishDateString);
+        
         $result = str_replace(
             array(
                 '{problem_id}',
@@ -43,7 +46,7 @@ class ProblemRenderer extends GeneralRenderer
                 $content['id'],
                 $content['title_romanian'],
                 $content['text_romanian'],
-                $content['publish_date'],
+                $publishDateTranslated,
                 $prevContent,
                 $nextContent
             ),

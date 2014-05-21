@@ -29,6 +29,10 @@ class ProblemsRenderer extends GeneralRenderer
         $result = '';
         foreach ($problems as $problem) {
             if ($problem['is_translated']) {
+                
+                $publishDateString = date('d F Y', $problem['publish_date']);
+                $publishDateTranslated = $this->translateDate($publishDateString);
+                
                 $result .= str_replace(
                     array(
                         '{problem_id}',
@@ -38,7 +42,7 @@ class ProblemsRenderer extends GeneralRenderer
                     ),
                     array(
                         $problem['id'],
-                        $problem['publish_date'],
+                        'Publicată în ' . $publishDateTranslated,
                         $problem['title_romanian'],
                         $problem['hits']
                     ),

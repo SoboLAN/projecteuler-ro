@@ -17,7 +17,7 @@ class ProblemContent
         
         try {
             $problemSt = $db->prepare(
-                'SELECT title_romanian, text_romanian, text_english, publish_date, last_main_update, is_translated, hits ' .
+                'SELECT title_romanian, text_romanian, text_english, publish_date, last_update, is_translated, hits ' .
                 'FROM translations ' .
                 'WHERE problem_id=?'
             );
@@ -41,7 +41,7 @@ class ProblemContent
             'text_romanian' => $dbProblem->text_romanian,
             'text_english' => $dbProblem->text_english,
             'publish_date' => $dbProblem->publish_date,
-            'last_main_update' => $dbProblem->last_main_update,
+            'last_update' => $dbProblem->last_update,
             'is_translated' => ($dbProblem->is_translated == 1),
             'hits' => $dbProblem->hits
         );
