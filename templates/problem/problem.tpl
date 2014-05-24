@@ -1,4 +1,4 @@
-<table style="width:100%" class="noprint">
+<table style="width:100%">
     <tr>
     <td>
    		{previous_link}
@@ -22,6 +22,6 @@
 {tag_box}
 
 <div class="clear"></div>
-<div style="text-align:center;" class="noprint">
+<div style="text-align:center;">
     <p><a href="http://projecteuler.net/problem={problem_id}" target="blank"><h3>&gt;&gt; Vezi problema originală &lt;&lt;</h3></a></p>
 </div>

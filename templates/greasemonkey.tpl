@@ -1,4 +1,4 @@
-<table style="width:100%" class="noprint">
+<table style="width:100%">
 <tr>
     <td><h2>Script GreaseMonkey</h2></td>
     <td>
