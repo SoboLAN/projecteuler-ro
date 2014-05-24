@@ -167,7 +167,7 @@ switch ($lang) {
     }
     case 'es':    //spanish
     {
-        $theData = getProblemContent('http://euleres.tk/problems.php?id=' . $problemID);
+        $theData = getProblemContent('http://http://darkair.de/euleres/problems.php?id=' . $problemID);
         
         $query = 'UPDATE gmonkeyaccesses SET accesses_es = accesses_es + 1 WHERE problem_id = ?';
         
