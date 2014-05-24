@@ -104,7 +104,7 @@ if (! isset($_GET['problem']) || ! isset($_GET['lang'])) {
 $problemID = $_GET['problem'];
 $lang = $_GET['lang'];
     
-$available_languages = array('ro', 'en', 'ru', 'es', 'kr');
+$available_languages = array('ro', 'en', 'ru', 'kr');
 
 if (! in_array($lang, $available_languages)) {
     exit(-3);
@@ -162,14 +162,6 @@ switch ($lang) {
         $theData = getProblemContent('http://euler.jakumo.org/problems/view/' . $problemID . '.html');
         
         $query = 'UPDATE gmonkeyaccesses SET accesses_ru = accesses_ru + 1 WHERE problem_id = ?';
-        
-        break;
-    }
-    case 'es':    //spanish
-    {
-        $theData = getProblemContent('http://http://darkair.de/euleres/problems.php?id=' . $problemID);
-        
-        $query = 'UPDATE gmonkeyaccesses SET accesses_es = accesses_es + 1 WHERE problem_id = ?';
         
         break;
     }

@@ -14,8 +14,8 @@
 
 <h3>Deci ce face acest script până la urmă ?</h3>
 <p>Script-ul acesta permite vizionarea traducerilor direct pe ProjectEuler.net, fără a fi nevoie vizitarea acestui site. Dacă script-ul a fost instalat corect,
-atunci o să vă apară 5 stegulețe în partea de sus a paginii atunci când vizionați textul unei probleme. Dând click pe oricare din aceste steaguri, veți putea
-comuta între variantele în limba engleză, română, rusă, spaniolă și coreeană a problemei. Pentru a vedea această funcționalitate în acțiune, vedeți filmulețul de mai jos:</p>
+atunci o să vă apară 4 stegulețe în partea de sus a paginii atunci când vizionați textul unei probleme. Dând click pe oricare din aceste steaguri, veți putea
+comuta între variantele în limba engleză, română, rusă și coreeană a problemei. Pentru a vedea această funcționalitate în acțiune, vedeți filmulețul de mai jos:</p>
 <br />
 
 <p>
@@ -40,7 +40,7 @@ căutați ajutor pe Internet (sau sunați un prieten :D) .</p>
 <ul>
 	<li>Primul lucru care trebuie să-l faceți e să descărcați script-ul propriu zis de aici: <a href="projecteuler.translate.user.js"><b>Descarcă script</b></a>. (click dreapta și alegeți &quot;Save as / Save Link as&quot;)
 		<br />
-		Acest script a fost actualizat ultima oară în <strong>18 Martie 2013</strong>.</li>
+		Acest script este momentan la versiunea <strong>1.4</strong> și a fost actualizat ultima oară în <strong>24 Mai 2013</strong>.</li>
 	<li>Faceți drag &amp; drop al fișierului în browser-ul Mozilla Firefox. O să apară o fereastră similară cu cea de mai jos:
 		<br /><br />
 		<img src="images/greasemonkey.install.png" title="Instalare Script" />

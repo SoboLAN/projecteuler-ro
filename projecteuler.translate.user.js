@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 - 2013 Murzea Radu. All rights reserved.
+ * Copyright (c) 2012 - 2014 Radu Murzea. All rights reserved.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -15,7 +15,7 @@
  * DESCRIPTION:
  * 
  * This script is intended for use only on ProjectEuler.net.
- * It places 5 flags (British, Romanian, Russian, Spanish and Korean) on top of every problem's page. By clicking on the flag,
+ * It places 4 flags (British, Romanian, Russian and Korean) on top of every problem's page. By clicking on the flag,
  * the corresponding translation of a problem is retrieved. The technique behind this
  * is JSONP (JSON with padding), since AJAX wouldn't work (see Same Origin Policy).
  * 
@@ -26,14 +26,13 @@
  * The romanian and british versions of the problems come from the same server as the backend part
  * of the script; the other 3 are parsed from the corresponding translations websites:
  * 
- * - http://euleres.tk/ for Spanish and
- * - http://euler.jakumo.org/ for Russian
+ * - http://euler.jakumo.org/ for Russian and
  * - http://euler.synap.co.kr/ for Korean
  * 
  * If a problem is not translated, the word 'NONE' is sent back from the
  * server, a response which the script ignores.
  * 
- * The 5 flag images are stored inside the script in Base64 format, to avoid
+ * The 4 flag images are stored inside the script in Base64 format, to avoid
  * additional HTTP requests.
  * 
  * As you can see: the script can be very easily extended to include
@@ -43,6 +42,12 @@
  
  /***************************************************
  *
+ * Version 1.4 (24 May 2014)
+ * _______________________________
+ * - Due to significant and frequent accessibility issues, support for Spanish translations is now
+ * dropped.
+ * 
+ * 
  * Version 1.3 (18 March 2013)
  * _______________________________
  * - support for Korean added. At this date, 110 problems are translated in this language.
@@ -100,9 +105,9 @@
 
 // ==UserScript==
 // @name Project Euler Problem Translator
-// @description Provides translations in Romanian, Russian and Spanish for Project Euler problems
-// @author Murzea Radu
-// @version 1.3
+// @description Provides translations in Romanian, Russian and Korean for Project Euler problems
+// @author Radu Murzea
+// @version 1.4
 // @icon http://projecteuler.javafling.org/favicon.ico
 // @updateURL http://projecteuler.javafling.org/projecteuler.translate.user.js
 // @include http://projecteuler.net/problem=*
@@ -191,32 +196,6 @@ function getKRFlag()
     return KR;
 }
 
-function getESFlag()
-{
-    var ES = document.createElement("img");
-    ES.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHd" +
-            "hcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFnSURBVHjaYvzPgAD/UNlYEUAAmuTYAAAQhAEYqF/zFbe50RZ1cMmS9TLi0pJLRjZohAMTG" +
-            "FUN9HdnHgEE1sDw//+Tp0ClINW/f0NIKPoFJH/9//ULyGaUlQXaABBALAx/Gf4zAt31F4i+ffj3/cN/XrFfzOx//v///f//LzACM/79ZmD" +
-            "8/e8TA0AAMYHdDVT958vXP38nMDB0s3x94/Tj5y+YahhiAKLfQKUAAcQEdtJfoDHMF2L+vPzDmFXLelf551tGFOOhev4A/QgQQExgHwAd8" +
-            "IdFT/Wz6j+GhlpmXSOW/2z///8Eq/sJ18Dw/zdQA0AAMQExxJjjdy9x2/76EfLz4MXdP/i+wsyGkkA3Aw3984cBIIAYfzIwMKel/bt3jwE" +
-            "aLNAwgZIQxp/fDH/+MqqovL14ESCAWICeZvr9h0FSEhSgwBgAygFDEMT+wwAhgQgc4kAEVAwQQIxfUSMSTxxDAECAAQAJWke8v4u1tAAAA" +
-            "ABJRU5ErkJggg==";
-    
-    ES.alt = "Spain";
-    ES.title = "Spanish";
-    ES.style.cursor = "pointer";
-    
-    ES.onclick = function() {
-        var problemID = getProblemID();
-        
-        if (! isNaN(problemID) && problemID !== -1) {
-            setNewTranslation(problemID, "es");
-        }
-    };
-    
-    return ES;
-}
-
 function getRUFlag()
 {
     var RU = document.createElement("img");
@@ -274,7 +253,6 @@ function insertFlags()
     var UK = getUKFlag();    //UK
     var RO = getROFlag();    //Romania
     var RU = getRUFlag();    //Russia
-    var ES = getESFlag();    //Spain
     var KR = getKRFlag();    //Korea
     
     var flagsParagraph = document.createElement("p");
@@ -282,12 +260,10 @@ function insertFlags()
     UK.style.marginRight = "12px";
     RO.style.marginRight = "12px";
     RU.style.marginRight = "12px";
-    ES.style.marginRight = "12px";
     
     flagsParagraph.appendChild(UK);
     flagsParagraph.appendChild(RO);
     flagsParagraph.appendChild(RU);
-    flagsParagraph.appendChild(ES);
     flagsParagraph.appendChild(KR);
     
     flagsParagraph.style.display = "block";
