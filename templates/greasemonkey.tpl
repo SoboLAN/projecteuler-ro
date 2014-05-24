@@ -19,16 +19,10 @@ comuta între variantele în limba engleză, română, rusă și coreeană a pro
 <br />
 
 <p>
-	<object id="Object1" type="application/x-shockwave-flash" data="player_flv_mini.swf" width="854" height="480">
-		<param name="movie" value="player_flv_mini.swf" />
-		<param name="wmode" value="opaque" />
-		<param name="allowScriptAccess" value="sameDomain" />
-		<param name="quality" value="high" />
-		<param name="menu" value="true" />
-		<param name="autoplay" value="false" />
-		<param name="autoload" value="false" />
-		<param name="FlashVars" value="flv=translation.demo.flv&width=854&height=480&autoplay=0&autoload=0&buffer=5&playercolor=000000 &loadingcolor=9b9a9a&buttoncolor=ffffff&slidercolor=ffffff" />
-	</object>
+	<video width="854" height="362" controls autobuffer>
+        <source type="video/webm" src="translation.demo.webm">
+        <source type="video/mp4" src="translation.demo.mp4">
+    </video>
 </p>
 
 <h3>Cum îl instalez ?</h3>
