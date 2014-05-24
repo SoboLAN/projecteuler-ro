@@ -49,10 +49,11 @@
 	a:hover { color: #aaa; }
 }
 
-.clear { clear: both; }
+.clear {
+    clear: both;
+}
 
-body
-{
+body {
 	padding: 0;
 	margin: 0;
 	border-width: 0;
@@ -62,53 +63,44 @@ body
 	color: #000;
 }
 
-img
-{
+img {
 	border:0;
 	vertical-align: middle;
 }
 
-h1,h2,h3,h4
-{
+h1,h2,h3,h4 {
 	margin: 0;
 	font-family: Arial,helvetic,sans-serif;
 }
 
-h2
-{
+h2 {
 	padding: 10px 0 5px 0;
 }
 
-h3,h4
-{
+h3,h4 {
 	font-family: "Courier New", monospace;
 }
 
-a
-{
+a {
 	text-decoration: none;
 }
 
-input[type="radio"]
-{
+input[type="radio"] {
 	vertical-align:middle;
 	margin:0 0 2px 2px;
 	padding:0;
 }
 
-#container
-{
+#container {
 	position: relative;
 	margin-top: 10px;
 }
 
-#content
-{
+#content {
 	padding: 10px;
 }
 
-#info_panel
-{
+#info_panel {
 	position:absolute;
 	right:10px;
 	top:30px;
@@ -117,7 +109,7 @@ input[type="radio"]
 	font: 80% Tahoma, Arial, sans-serif;
 }
 
-#footer, #footer a {
+footer, footer a {
    margin-top: 50px;
    text-align:center;
    padding:20px;
@@ -136,22 +128,19 @@ dfn {
    font-style: normal;
 }
 
-.overline
-{
+.overline {
 	border-top: 1px solid #000;
 }
 
 /* ----------------------------------------
 info
 ---------------------------------------- */
-.info
-{
+.info {
 	position: relative;
 	cursor: help;
 }
 
-.info span
-{
+.info span {
 	display: none;
 	position: absolute;
 	font-weight:normal;
@@ -166,10 +155,10 @@ info
 	-moz-border-radius: 5px;
 }
 
-.info:hover span
-{
+.info:hover span {
 	display: block;
 }
+
 /* ----------------------------------------
 end of info
 ---------------------------------------- */
@@ -177,8 +166,18 @@ end of info
 /* ----------------------------------------
 logo
 ---------------------------------------- */
-#logo { position: absolute; top: 0; left: 11px; width: 200px; margin-right: 20px; }
-#logo img { vertical-align:top; }
+#logo {
+    position: absolute;
+    top: 0;
+    left: 11px;
+    width: 200px;
+    margin-right: 20px;
+}
+
+#logo img {
+    vertical-align:top;
+}
+
 /* ----------------------------------------
 end of logo
 ---------------------------------------- */
@@ -186,12 +185,37 @@ end of logo
 /* ----------------------------------------
 navigation
 ---------------------------------------- */
-#nav { position: absolute; top: 0; right: 0; padding: 0; font: 80% Tahoma, Arial, sans-serif; margin-bottom: 10px; }
-#nav ul { list-style: none; margin:0; }
-#nav li { width: 110px; background-color:#888; display:block; float:left; margin-right:7px; border:1px solid #777;}
-#nav a { color:#fff; display:block; font-weight:bold; padding:5px; text-decoration:none; }
-#nav li:hover { background-color:#ff9933; }
-#nav #current a { background-color:#ff9933; }
+
+#navigation-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+    font: 80% Tahoma, Arial, sans-serif;
+    margin-bottom: 10px;
+}
+
+#navigation-menu a {
+    color: #FFFFFF;
+    font-weight: bold;
+    border: 1px solid #707070;
+    padding: 5px;
+    margin-right: 5px;
+    background-color: #808080;
+    text-decoration: none;
+    float: left;
+    display: block;
+    width: 100px;
+}
+
+#navigation-menu a:hover {
+    background-color: #FF9933;
+}
+
+#navigation-menu a.selected {
+    background-color: #FF9933;
+}
+
 /* ----------------------------------------
 end of navigation
 ---------------------------------------- */
@@ -199,8 +223,16 @@ end of navigation
 /* ----------------------------------------
 formula
 ---------------------------------------- */
-.formula table { border-collapse: collapse; margin: 0 5px; }
-.formula .frac td { padding: 0 5px; text-align: center; }
+.formula table {
+    border-collapse: collapse;
+    margin: 0 5px;
+}
+
+.formula .frac td {
+    padding: 0 5px;
+    text-align: center;
+}
+
 /* ----------------------------------------
 end of formula
 ---------------------------------------- */
@@ -208,10 +240,25 @@ end of formula
 /* ----------------------------------------
 Grid - style of most tables on the site
 ---------------------------------------- */
-.grid { border-collapse: collapse; }
-.grid th { text-align: center; font-weight: bold; }
-.grid th { padding: 2px; border: 1px solid #bbb; }
-.grid td { padding: 2px; border: 1px solid #bbb; }
+.grid {
+    border-collapse: collapse;
+}
+
+.grid th {
+    text-align: center;
+    font-weight: bold;
+}
+
+.grid th {
+    padding: 2px;
+    border: 1px solid #bbb;
+}
+
+.grid td {
+    padding: 2px;
+    border: 1px solid #bbb;
+}
+
 /* ----------------------------------------
 End of Grid
 ---------------------------------------- */
@@ -219,8 +266,15 @@ End of Grid
 /* ----------------------------------------
 no_border
 ---------------------------------------- */
-.no_border { border-collapse: collapse; }
-.no_border td { padding: 1px; border: none; }
+.no_border {
+    border-collapse: collapse;
+}
+
+.no_border td {
+    padding: 1px;
+    border: none;
+}
+
 /* ----------------------------------------
 end of no_border
 ---------------------------------------- */
@@ -228,16 +282,14 @@ end of no_border
 /* ----------------------------------------
 pagination
 ---------------------------------------- */
-.pagination
-{
+.pagination {
 	font-family: Tahoma, Arial, sans-serif;
 	font-size: 80%;
 	height: 1%; /* IE tweak (holly hack) */
 	text-align: center;
 }
 
-.pagination a, .pagination a:link, .pagination a:visited, .pagination a:active
-{
+.pagination a, .pagination a:link, .pagination a:visited, .pagination a:active {
 	display: block;
 	float: left;
 	font-weight:bold;
@@ -250,9 +302,21 @@ pagination
 	border: 1px solid #777;
 }
 
-.pagination a.current { background-color: #f93; font-weight: bold; }
-.pagination a:hover { background-color: #f93; color: #fff; }
-.pagination span { float: left; font-weight: bold; }
+.pagination a.current {
+    background-color: #f93;
+    font-weight: bold;
+}
+
+.pagination a:hover {
+    background-color: #f93;
+    color: #fff;
+}
+
+.pagination span {
+    float: left;
+    font-weight: bold;
+}
+
 /* ----------------------------------------
 end of pagination
 ---------------------------------------- */
@@ -260,8 +324,7 @@ end of pagination
 /* ----------------------------------------
 applied-tags
 ---------------------------------------- */
-.applied-tags a, .applied-tags a:link, .applied-tags a:visited, .applied-tags a:active
-{
+.applied-tags a, .applied-tags a:link, .applied-tags a:visited, .applied-tags a:active {
 	display: block;
 	float: left;
 	font-weight:bold;
@@ -274,16 +337,23 @@ applied-tags
 	border: 1px solid #777;
 }
 
-.applied-tags
-{
+.applied-tags {
 	font-family: Tahoma, Arial, sans-serif;
 	font-size: 80%;
 	height: 1%; /* IE tweak (holly hack) */
 	text-align: center;
 }
 
-.applied-tags a.current { background-color: #f93; font-weight: bold; }
-.applied-tags a:hover { background-color: #f93; color: #fff; }
+.applied-tags a.current {
+    background-color: #f93;
+    font-weight: bold;
+}
+
+.applied-tags a:hover {
+    background-color: #f93;
+    color: #fff;
+}
+
 /* ----------------------------------------
 end of applied-tags
 ---------------------------------------- */
@@ -291,10 +361,31 @@ end of applied-tags
 /* ----------------------------------------
 table_cell_done
 ---------------------------------------- */
-.table_cell_done { width:20px; height:20px; vertical-align:middle; background-color:#CEE7B6; }
-td.table_cell_done a { color: #999; }
-td.table_cell_done a div { font-size:70%; text-align:center; color:#000; cursor: pointer; }
-td.table_cell_done a div span { color:#000; width:300px; text-align:left; font-size:125%; }
+.table_cell_done {
+    width:20px;
+    height:20px;
+    vertical-align:middle;
+    background-color:#CEE7B6;
+}
+
+td.table_cell_done a {
+    color: #999;
+}
+
+td.table_cell_done a div {
+    font-size:70%;
+    text-align:center;
+    color:#000;
+    cursor: pointer;
+}
+
+td.table_cell_done a div span {
+    color:#000;
+    width:300px;
+    text-align:left;
+    font-size:125%;
+}
+
 /* ----------------------------------------
 end of table_cell_done
 ---------------------------------------- */
@@ -302,8 +393,19 @@ end of table_cell_done
 /* ----------------------------------------
 table_cell_not_done
 ---------------------------------------- */
-.table_cell_not_done { width:12px; height:12px; vertical-align:middle; background-color:#fff; }
-td.table_cell_not_done div { font-size:70%; text-align:center; color:#999; }
+.table_cell_not_done {
+    width:12px;
+    height:12px;
+    vertical-align:middle;
+    background-color:#fff;
+}
+
+td.table_cell_not_done div {
+    font-size:70%;
+    text-align:center;
+    color:#999;
+}
+
 /* ----------------------------------------
 end of table_cell_not_done
 ---------------------------------------- */
@@ -311,11 +413,34 @@ end of table_cell_not_done
 /* ----------------------------------------
 tags-table
 ---------------------------------------- */
-#tags-table { width: 990px; height: 160px; padding-right: 10px; margin: 0 0 0 0; overflow-y: scroll; }
-#tags-table table { width: 100%; }
-#tags-table td { width: 25%; padding: 5px; white-space: nowrap; }
-#tags-table td a { padding-left: 5px; color: #777; text-decoration: none; }
-#tags-table td a:hover { color: #999; }
+#tags-table {
+    width: 990px;
+    height: 160px;
+    padding-right: 10px;
+    margin: 0 0 0 0;
+    overflow-y: scroll;
+}
+
+#tags-table table {
+    width: 100%;
+}
+
+#tags-table td {
+    width: 25%;
+    padding: 5px;
+    white-space: nowrap;
+}
+
+#tags-table td a {
+    padding-left: 5px;
+    color: #777;
+    text-decoration: none;
+}
+
+#tags-table td a:hover {
+    color: #999;
+}
+
 /* ----------------------------------------
 end of tags-table
 ---------------------------------------- */
@@ -323,8 +448,7 @@ end of tags-table
 /* ----------------------------------------
 submit-btn
 ---------------------------------------- */
-#submit-btn
-{
+#submit-btn {
 	font-family: Tahoma, Arial, sans-serif;
 	font-size: 80%;
 	display: block;
@@ -339,8 +463,7 @@ submit-btn
 	border: 1px solid #777;
 }
 
-#submit-btn:hover
-{
+#submit-btn:hover {
 	background-color: #f93;
 	color: #fff;
 	cursor: pointer;

@@ -63,7 +63,7 @@ class Site
         );
         
         foreach (self::$pages as $key => $value) {
-            $selected = ($page == $key) ? 'id="current"' : '';
+            $selected = ($page == $key) ? 'class="selected"' : '';
             $tpl = str_replace('{selected_' . $value . '}', $selected, $tpl);
         }
 
