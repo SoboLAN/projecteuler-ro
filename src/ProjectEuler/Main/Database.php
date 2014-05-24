@@ -2,8 +2,8 @@
 
 namespace ProjectEuler\Main;
 
-use FileListPoker\Main\PEException;
-use FileListPoker\Main\Logger;
+use ProjectEuler\Main\PEException;
+use ProjectEuler\Main\Logger;
 
 use PDO as PDO;
 use PDOException as PDOException;
