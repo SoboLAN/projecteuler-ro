@@ -81,10 +81,14 @@ input[type="radio"] {
     font: 80% Tahoma, Arial, sans-serif;
 }
 
-footer, footer a {
+footer {
    margin-top: 50px;
-   text-align: center;
    padding: 20px;
+   text-align: center;
+   color: #B0B0B0;
+}
+
+footer a {
    font: 11px Verdana,sans-serif;
    color: #B0B0B0;
 }
