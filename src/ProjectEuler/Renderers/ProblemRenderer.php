@@ -9,23 +9,21 @@ class ProblemRenderer extends GeneralRenderer
     public function renderProblem($mainTemplate, $prevTpl, $nextTpl, $content, $neighBorsStatus)
     {
         $nextContent = '';
-        if (isset($neighBorsStatus['next'])) {
-            $nextImage = $neighBorsStatus['next'] ? 'icon_next_solved.png' : 'icon_next.png';
+        if (isset($neighBorsStatus['next']) && $neighBorsStatus['next'] == true) {
             
             $nextContent = str_replace(
                 array('{next_id}', '{next_image}'),
-                array($content['id'] + 1, $nextImage),
+                array($content['id'] + 1, 'icon_next_solved.png'),
                 $nextTpl
             );
         }
         
         $prevContent = '';
-        if (isset($neighBorsStatus['prev'])) {
-            $prevImage = $neighBorsStatus['prev'] ? 'icon_back_solved.png' : 'icon_back.png';
+        if (isset($neighBorsStatus['prev']) && $neighBorsStatus['prev'] == true) {
             
             $prevContent = str_replace(
                 array('{previous_id}', '{previous_image}'),
-                array($content['id'] - 1, $prevImage),
+                array($content['id'] - 1, 'icon_back_solved.png'),
                 $prevTpl
             );
         }
