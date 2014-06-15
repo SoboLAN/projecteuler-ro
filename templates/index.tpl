@@ -28,7 +28,7 @@ această pagină se află și în meniul de sus)</p>
 <br />
 
 <h3>Unde pot găsi codul sursă al site-ului ?</h3>
-<p>Codul se poate accesa la următoarea adresă: <a href="https://github.com/SoboLAN/projecteuler-ro.git">https://github.com/SoboLAN/projecteuler-ro.git</a>.</p>
+<p>Codul se poate accesa la următoarea adresă: <a href="https://github.com/SoboLAN/projecteuler-ro">https://github.com/SoboLAN/projecteuler-ro.git</a>.</p>
 <p>Codul este disponibil sub licența GPL v3 și accept pull-request-uri dacă aveți vreo idee interesantă. De asemenea, versiunea curentă apare în footer-ul site-ului.</p>
 <br />
 
