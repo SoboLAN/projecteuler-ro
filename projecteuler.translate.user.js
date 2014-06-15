@@ -44,6 +44,12 @@
  
  /***************************************************
  *
+ * Version 1.6 (15 June 2014)
+ * _______________________________
+ * - Since Firefox introduced the Mixed Active Content blocker in Firefox 23, this script will
+ * only run when viewing problems in HTTP mode and it will fail in HTTPS. So it's now
+ * disabled on HTTPS.
+ *
  * Version 1.5 (15 June 2014)
  * _______________________________
  * - Added translations in German.
@@ -112,13 +118,12 @@
 
 // ==UserScript==
 // @name Project Euler Problem Translator
-// @description Provides translations in Romanian, Russian and Korean for Project Euler problems
+// @description Provides translations in Romanian, Russian, Korean and German for Project Euler problems
 // @author Radu Murzea
-// @version 1.5
+// @version 1.6
 // @icon http://projecteuler.javafling.org/favicon.ico
 // @updateURL http://projecteuler.javafling.org/projecteuler.translate.user.js
 // @include http://projecteuler.net/problem=*
-// @include https://projecteuler.net/problem=*
 // @grant none
 // ==/UserScript== 
 
