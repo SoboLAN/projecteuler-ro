@@ -54,8 +54,8 @@
                 aici: <a href="projecteuler.translate.user.js"><b>Descarcă script</b></a>. (click dreapta
                 și alegeți &quot;Save as / Save Link as&quot;)
                 <br />
-                Acest script este momentan la versiunea <strong>1.4</strong> și a fost actualizat ultima
-                oară în <strong>24 Mai 2014</strong>.
+                Acest script este momentan la versiunea <strong>1.5</strong> și a fost actualizat ultima
+                oară în <strong>15 Iunie 2014</strong>.
             </li>
             <li>
                 Faceți drag &amp; drop al fișierului în browser-ul Mozilla Firefox. O să apară o fereastră

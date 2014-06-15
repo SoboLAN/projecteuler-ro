@@ -15,9 +15,10 @@
  * DESCRIPTION:
  * 
  * This script is intended for use only on ProjectEuler.net.
- * It places 4 flags (British, Romanian, Russian and Korean) on top of every problem's page. By clicking on the flag,
- * the corresponding translation of a problem is retrieved. The technique behind this
- * is JSONP (JSON with padding), since AJAX wouldn't work (see Same Origin Policy).
+ * It places 5 flags (British, Romanian, Russian, Korean and German) on top of every problem's page.
+ * By clicking on the flag, the corresponding translation of a problem is retrieved.
+ * The technique behind this is JSONP (JSON with padding), since AJAX wouldn't
+ * work (see Same Origin Policy).
  * 
  * The processing function (only 2 - 3 lines of code) is another file,
  * which is retrieved from the server every time. That function will be executed
@@ -26,13 +27,14 @@
  * The romanian and british versions of the problems come from the same server as the backend part
  * of the script; the other 3 are parsed from the corresponding translations websites:
  * 
- * - http://euler.jakumo.org/ for Russian and
- * - http://euler.synap.co.kr/ for Korean
+ * - http://euler.jakumo.org/ for Russian,
+ * - http://euler.synap.co.kr/ for Korean and
+ * - http://projekteuler.de for German
  * 
  * If a problem is not translated, the word 'NONE' is sent back from the
  * server, a response which the script ignores.
  * 
- * The 4 flag images are stored inside the script in Base64 format, to avoid
+ * The 5 flag images are stored inside the script in Base64 format, to avoid
  * additional HTTP requests.
  * 
  * As you can see: the script can be very easily extended to include
@@ -41,6 +43,11 @@
  *******************************************************************************/
  
  /***************************************************
+ *
+ * Version 1.5 (15 June 2014)
+ * _______________________________
+ * - Added translations in German.
+ * - Since Firefox introduced the Mixed Active Content blocker in FF 23
  *
  * Version 1.4 (24 May 2014)
  * _______________________________
@@ -107,7 +114,7 @@
 // @name Project Euler Problem Translator
 // @description Provides translations in Romanian, Russian and Korean for Project Euler problems
 // @author Radu Murzea
-// @version 1.4
+// @version 1.5
 // @icon http://projecteuler.javafling.org/favicon.ico
 // @updateURL http://projecteuler.javafling.org/projecteuler.translate.user.js
 // @include http://projecteuler.net/problem=*
@@ -167,6 +174,33 @@ function getROFlag()
     };
 
     return RO;
+}
+
+function getDEFlag()
+{
+    var DE = document.createElement("img");
+    DE.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHd" +
+            "hcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGzSURBVHjaYvTxcWb4+53h3z8GZpZff/79+v3n/7/fDAz/GHAAgABi+f37e3FxOZD1Dwz+/" +
+            "v3z9y+E/AMFv3//+Qumfv9et241QACxMDExAVWfOHkJJAEW/gUEP0EQDn78+AHE/gFOQJUAAcQiy8Ag8O+fLFj1n1+/QDp+/gQioK7fP37" +
+            "8+vkDqOH39x9A/RJ/gE5lAAhAYhzcAACCQBDkgRXRjP034R0IaDTZTFZn0DItot37S94KLOINerEcI7aKHAHE8v/3r/9//zIA1f36/R+o4" +
+            "tevf1ANYNVA9P07RD9IJQMDQACxADHD3z8Ig4GMHz+AqqHagKp//fwLVA0U//v7LwMDQACx/LZiYFD7/5/53/+///79BqK/EMZ/UPACSYa" +
+            "/v/8DyX9A0oTxx2EGgABi+a/H8F/m339BoCoQ+g8kgRaCQvgPJJiBYmAuw39hxn+uDAABxMLwi+E/0PusRkwMvxhBGoDkH4b/v/+D2EDyz" +
+            "///QB1/QLb8+sP0lQEggFh+vGXYM2/SP6A2Zoaf30Ex/J+PgekHwz9gQDAz/P0FYrAyMfz7wcDAzPDtFwNAgAEAd3SIyRitX1gAAAAASUV" +
+            "ORK5CYII=";
+    
+    DE.alt = "Germany";
+    DE.title = "German";
+    DE.style.cursor = "pointer";
+    
+    DE.onclick = function() {
+        var problemID = getProblemID();
+        
+        if (! isNaN(problemID) && problemID !== -1) {
+            setNewTranslation(problemID, "de");
+        }
+    };
+
+    return DE;
 }
 
 function getKRFlag()
@@ -250,21 +284,24 @@ function getUKFlag()
 
 function insertFlags()
 {
-    var UK = getUKFlag();    //UK
-    var RO = getROFlag();    //Romania
-    var RU = getRUFlag();    //Russia
-    var KR = getKRFlag();    //Korea
+    var UK = getUKFlag();   //UK
+    var RO = getROFlag();   //Romania
+    var RU = getRUFlag();   //Russia
+    var KR = getKRFlag();   //Korea
+    var DE = getDEFlag();   //Germany
     
     var flagsParagraph = document.createElement("p");
     
     UK.style.marginRight = "12px";
     RO.style.marginRight = "12px";
     RU.style.marginRight = "12px";
+    KR.style.marginRight = "12px";
     
     flagsParagraph.appendChild(UK);
     flagsParagraph.appendChild(RO);
     flagsParagraph.appendChild(RU);
     flagsParagraph.appendChild(KR);
+    flagsParagraph.appendChild(DE);
     
     flagsParagraph.style.display = "block";
     flagsParagraph.style.marginLeft = "auto";

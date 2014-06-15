@@ -36,13 +36,13 @@ try {
 //returns a DOMNode's content, without stripping internal HTML tags
 function DOMinnerHTML($element)
 {
-    $innerHTML = "";
+    $innerHTML = '';
     $children = $element->childNodes;
         
     foreach ($children as $child) {
-        $tmp_dom = new DOMDocument();
-        $tmp_dom->appendChild($tmp_dom->importNode($child, true));
-        $innerHTML .= trim($tmp_dom->saveHTML());
+        $tmpDOM = new DOMDocument();
+        $tmpDOM->appendChild($tmpDOM->importNode($child, true));
+        $innerHTML .= trim($tmpDOM->saveHTML());
     }
     
     return $innerHTML;
@@ -57,10 +57,10 @@ function getProblemContent($url)
     $html = file_get_contents($url);
         
     //no content retrieved...
-    if ($html === false OR strlen($html) < 40) {
+    if ($html === false OR strlen($html) < 30) {
         return 'NONE';
     }
-        
+    
     //parsing errors occur often, so this will prevent them
     //from showing up to the user, they will be handled internally
     libxml_use_internal_errors(true);
@@ -83,8 +83,11 @@ function getProblemContent($url)
             
         if (! is_null($attr)) {
             $s = $attr->getNamedItem('class');
+            
+            if (! is_null($s) &&
+                ($s->nodeValue == 'problem_content' ||
+                $s->nodeValue == 'panel-body problem-content')) {
                 
-            if (! is_null($s) && $s->nodeValue == 'problem_content') {
                 //if the correct item is found, it needs to go through
                 //the DOMinnerHTML function. otherwise, the internal HTML code
                 //will be stripped when the content is extracted
@@ -96,22 +99,21 @@ function getProblemContent($url)
     //if the problem is not found... well... sorry
     return 'NONE';
 }
-    
+
 if (! isset($_GET['problem']) || ! isset($_GET['lang'])) {
     exit(-1);
 }
 
 $problemID = $_GET['problem'];
 $lang = $_GET['lang'];
-    
-$available_languages = array('ro', 'en', 'ru', 'kr');
 
+$available_languages = array('ro', 'en', 'ru', 'kr', 'de');
 if (! in_array($lang, $available_languages)) {
     exit(-3);
 }
-    
+
 //eliminate some junk... (people can put all sorts of stuff in this thing)...
-if (strlen($problemID) > 4 || strpos($problemID, '.') !== false || strpos($problemID, '/') !== false) {
+if (strlen($problemID) > 4 || ! ctype_digit($problemID)) {
     exit(-4);
 }
 
@@ -162,6 +164,14 @@ switch ($lang) {
         $theData = getProblemContent('http://euler.jakumo.org/problems/view/' . $problemID . '.html');
         
         $query = 'UPDATE gmonkeyaccesses SET accesses_ru = accesses_ru + 1 WHERE problem_id = ?';
+        
+        break;
+    }
+    case 'de':    //german
+    {
+        $theData = getProblemContent('http://projekteuler.de/problems/' . $problemID);
+        
+        $query = 'UPDATE gmonkeyaccesses SET accesses_de = accesses_de + 1 WHERE problem_id = ?';
         
         break;
     }
