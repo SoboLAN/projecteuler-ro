@@ -53,7 +53,6 @@
  * Version 1.5 (15 June 2014)
  * _______________________________
  * - Added translations in German.
- * - Since Firefox introduced the Mixed Active Content blocker in FF 23
  *
  * Version 1.4 (24 May 2014)
  * _______________________________
