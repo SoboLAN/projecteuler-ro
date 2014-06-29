@@ -84,9 +84,7 @@ function getProblemContent($url)
         if (! is_null($attr)) {
             $s = $attr->getNamedItem('class');
             
-            if (! is_null($s) &&
-                ($s->nodeValue == 'problem_content' ||
-                $s->nodeValue == 'panel-body problem-content')) {
+            if (! is_null($s) && $s->nodeValue == 'problem_content') {
                 
                 //if the correct item is found, it needs to go through
                 //the DOMinnerHTML function. otherwise, the internal HTML code
@@ -169,9 +167,13 @@ switch ($lang) {
     }
     case 'de':    //german
     {
-        $theData = getProblemContent('http://projekteuler.de/problems/' . $problemID);
+        $rawData = file_get_contents('http://projekteuler.de/problems/' . $problemID . '/json');
         
-        $query = 'UPDATE gmonkeyaccesses SET accesses_de = accesses_de + 1 WHERE problem_id = ?';
+        $problemInfo = json_decode($rawData, true);
+        if (! is_null($problemInfo) && $problemInfo['translated'] == true) {
+            $theData = $problemInfo['text'];
+            $query = 'UPDATE gmonkeyaccesses SET accesses_de = accesses_de + 1 WHERE problem_id = ?';
+        }
         
         break;
     }
