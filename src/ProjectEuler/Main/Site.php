@@ -12,7 +12,7 @@ use ProjectEuler\Main\PEException;
 class Site
 {
     //current version of the site
-    private static $siteVersion = '2.1.2';
+    private static $siteVersion = '2.1.3';
     
     //keys represent the list of valid pages
     //the values represent the keys used in the templates. so they have a double role.

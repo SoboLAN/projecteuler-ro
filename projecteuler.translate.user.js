@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 - 2014 Radu Murzea. All rights reserved.
+ * Copyright (c) 2012 - 2016 Radu Murzea. All rights reserved.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -44,43 +44,43 @@
  
  /***************************************************
  *
- * Version 1.6 (15 June 2014)
+ * Version 1.7 (24 September 2016)
+ * - The domain name where the scripts and romanian translations live has been changed, so this new version updates them.
  * _______________________________
+ *
+ * Version 1.6 (15 June 2014)
  * - Since Firefox introduced the Mixed Active Content blocker in Firefox 23, this script will
  * only run when viewing problems in HTTP mode and it will fail in HTTPS. So it's now
  * disabled on HTTPS.
+ * @see https://blog.mozilla.org/tanvi/2013/04/10/mixed-content-blocking-enabled-in-firefox-23/
+ * A solution would be to buy a HTTPS certificate for my domain, but atm the costs are not justified.
+ * _______________________________
  *
  * Version 1.5 (15 June 2014)
- * _______________________________
  * - Added translations in German.
+ *_______________________________
  *
  * Version 1.4 (24 May 2014)
- * _______________________________
  * - Due to significant and frequent accessibility issues, support for Spanish translations is now
  * dropped.
- * 
+ * _______________________________
  * 
  * Version 1.3 (18 March 2013)
- * _______________________________
  * - support for Korean added. At this date, 110 problems are translated in this language.
- *
+ * _______________________________
  *
  * Version 1.2.5 (13 January 2013)
- * _______________________________
  * - the flags will no longer appear on the page exactly after
  * you enter a (correct or incorrect) answer. This issue existed because the URL remains
  * the same.
  * - a few minor changes
- * 
+ * _______________________________
  *
  * Version 1.2 (28 December 2012)
- * _______________________________
  * - translations are now offered in Russian and Spanish as well. These translations are parsed from
  * euler.jakumo.org and euleres.tk, respectively. Because of this, additional roundtrips must be made to
  * retrieve these translations, which is why it will feel slower... sometimes very slow.
- *
  * - some small changes here and there.
- *
  * - the backend part has been changed from "read.php" to "getjsontranslation.php". Although the old version
  * is still functional, it is highly recommended to switch to the new one (spanish and russian are accessible
  * only in the new one). Please note that the old version will be taken out of rotation on the 20th of January.
@@ -93,23 +93,20 @@
  * a few minutes later. Apparently, this issue has something to do
  * with network connection timeouts (low quality hosting ?), so this is not a bug in the script
  * itself. Please do not report this as a bug.
- * 
+ * _______________________________
  *
  * Version 1.0.2 (17 December 2012)
- * _______________________________
  * - script functionality was broken by some changes in
  * the HTML code on projecteuler.net that occured on 16 December 2012. This version
  * fixes this issue.
- *
+ * _______________________________
  *
  * Version 1.0.1 (22 September 2012)
- * _______________________________
  * - added some extra safety by checking that the parsing of
  * the problem's ID did not return NaN
- * 
+ * _______________________________
  *
  * Version 1.0 (18 September 2012)
- * _______________________________
  * - initial release
  *
  ****************************************************/
@@ -119,9 +116,9 @@
 // @name Project Euler Problem Translator
 // @description Provides translations in Romanian, Russian, Korean and German for Project Euler problems
 // @author Radu Murzea
-// @version 1.6
-// @icon http://projecteuler.javafling.org/favicon.ico
-// @updateURL http://projecteuler.javafling.org/projecteuler.translate.user.js
+// @version 1.7
+// @icon http://projecteuler.radumurzea.net/favicon.ico
+// @updateURL http://projecteuler.radumurzea.net/projecteuler.translate.user.js
 // @include http://projecteuler.net/problem=*
 // @grant none
 // ==/UserScript== 
@@ -132,7 +129,7 @@ function setNewTranslation(problem, lang)
 {
     var script = document.createElement('script');
     
-    script.setAttribute('src', 'http://projecteuler.javafling.org/getjsontranslation.php?problem=' + problem + '&lang=' + lang);
+    script.setAttribute('src', 'http://projecteuler.radumurzea.net/getjsontranslation.php?problem=' + problem + '&lang=' + lang);
     
     document.getElementsByTagName('head')[0].appendChild(script); 
 }
@@ -325,7 +322,7 @@ function insertTranslationProcessing()
     
     pscript.setAttribute('type', 'text/javascript');
     
-    pscript.setAttribute('src', 'http://projecteuler.javafling.org/processtranslation.js');
+    pscript.setAttribute('src', 'http://projecteuler.radumurzea.net/processtranslation.js');
     
     var bodyElement = document.getElementsByTagName('body')[0];
     

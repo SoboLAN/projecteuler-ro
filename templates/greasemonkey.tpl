@@ -25,9 +25,9 @@
 <article>
     <h3>Deci ce face acest script până la urmă ?</h3>
     <p>Script-ul acesta permite vizionarea traducerilor direct pe ProjectEuler.net, fără a fi nevoie
-    vizitarea acestui site. Dacă script-ul a fost instalat corect, atunci o să vă apară 4 stegulețe
+    vizitarea acestui site. Dacă script-ul a fost instalat corect, atunci o să vă apară 5 stegulețe
     în partea de sus a paginii atunci când vizionați textul unei probleme. Dând click pe oricare din
-    aceste steaguri, veți putea comuta între variantele în limba engleză, română, rusă și coreeană
+    aceste steaguri, veți putea comuta între variantele în limba engleză, română, rusă, germană și coreeană
     a problemei. Pentru a vedea această funcționalitate în acțiune, vedeți filmulețul de mai jos:</p>
     <br />
 
@@ -54,8 +54,8 @@
                 aici: <a href="projecteuler.translate.user.js"><b>Descarcă script</b></a>. (click dreapta
                 și alegeți &quot;Save as / Save Link as&quot;)
                 <br />
-                Acest script este momentan la versiunea <strong>1.6</strong> și a fost actualizat ultima
-                oară în <strong>15 Iunie 2014</strong>.
+                Acest script este momentan la versiunea <strong>1.7</strong> și a fost actualizat ultima
+                oară în <strong>24 Septembrie 216</strong>.
             </li>
             <li>
                 Faceți drag &amp; drop al fișierului în browser-ul Mozilla Firefox. O să apară o fereastră
@@ -84,6 +84,15 @@
     nu folosește nici o funcție din această familie și, prin urmare, poate fi folosit pe orice browser
     (+ extensie) care suportă așa ceva. Dacă descoperiți că funcționează în Opera, de exemplu,
     atunci folosiți-l așa.</p>
+</article>
+
+<article>
+    <h3>Când intru pe site-ul ProjectEuler nu se întâmplă nimic. De ce ?</h3>
+    <p>Dacă folosiţi un browser cu facilitatea Mixed Active Content Blocker activată şi intraţi
+    pe varianta HTTPS a site-ului ProjectEuler, atunci script-ul nu o să funcţioneze.
+    De exemplu, toate versiunile Mozilla Firefox mai noi de 23 au această funcţie activată în mod implicit.
+    Soluţia recomandată este fie să dezactivaţi această funcţionalitate (căutaţi pe Google cum se face),
+    fie să folosiţi varianta HTTP a site-ului ProjectEuler.</p>
 </article>
 
 <article>
