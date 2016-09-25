@@ -4,7 +4,7 @@ Project Euler RO
 Description
 
 - Website dedicated to the Romanian translations of the Project Euler problems.
-- Production version can be found at http://projecteuler.javafling.org
+- Production version can be found at http://projecteuler.radumurzea.net/
 
 Licensing
 
