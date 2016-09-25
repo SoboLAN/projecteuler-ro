@@ -38,7 +38,7 @@
         <footer>
             Project Euler RO v{site_version}
             <br />
-            <a href="copyright.php">Copyright &copy; 2012 - 2014. Informatii despre copyright</a>
+            <a href="copyright.php">Copyright &copy; 2012 - 2016. Informatii despre copyright</a>
         </footer>
     </div>
 </body>

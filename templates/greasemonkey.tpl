@@ -51,15 +51,13 @@
         <ul>
             <li>
                 Primul lucru care trebuie să-l faceți e să descărcați script-ul propriu zis de
-                aici: <a href="projecteuler.translate.user.js"><b>Descarcă script</b></a>. (click dreapta
-                și alegeți &quot;Save as / Save Link as&quot;)
+                aici: <a href="https://greasyfork.org/en/scripts/4899-project-euler-problem-translator"><b>Descarcă script</b></a>.
                 <br />
                 Acest script este momentan la versiunea <strong>1.7</strong> și a fost actualizat ultima
                 oară în <strong>24 Septembrie 216</strong>.
             </li>
             <li>
-                Faceți drag &amp; drop al fișierului în browser-ul Mozilla Firefox. O să apară o fereastră
-                similară cu cea de mai jos:
+                O să apară o fereastră similară cu cea de mai jos:
                 <br />
                 <br />
                 <img src="images/greasemonkey.install.png" title="Instalare Script" />
@@ -104,6 +102,11 @@
     acea traducere există. Dacă există și tot nu funcționează script-ul pentru o anumita problemă,
     atunci vă rog folosiți formularul de Contact și raportați această problemă, preferabil cu cât
     mai multe detalii posibil.</p>
+</article>
+
+<article>
+    <h3>Pot găsi undeva codul sursă al script-ului ?</h3>
+    <p>Script-ul are propriul său repository pe GitHub: <a href="https://github.com/SoboLAN/projecteuler-translation-script">https://github.com/SoboLAN/projecteuler-translation-script</a>.</p>
 </article>
 
 <article>
