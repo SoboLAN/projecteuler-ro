@@ -27,6 +27,8 @@ class Site
 
     public function __construct()
     {
+        set_exception_handler(array($this, 'handleException'));
+        
         if (! Config::getValue('online')) {
             throw new PEException('The site is currently down for maintenance', PEException::SITE_OFFLINE);
         }
@@ -79,5 +81,31 @@ class Site
     public function isValidID($id)
     {
         return (strlen($id) <= 4 && ctype_digit($id));
+    }
+    
+    /**
+     * Global exception handler. This function will log all exceptions
+     * and redirect the user to the appropiate error page, depending on the situation.
+     * It's registered in this class's constructor, so it would be ideal to that the first thing
+     * every page does is create an instance of this class.
+     * 
+     * @param PEException $e the thrown Exception.
+     */
+    public function handleException(PEException $e)
+    {
+        switch ($e->getType()) {
+            case PEException::ERROR:
+                header('Location: 500.shtml');
+                exit();
+            case PEException::INVALID_REQUEST:
+                header('Location: 400.shtml');
+                exit();
+            case PEException::SITE_OFFLINE:
+                header('Location: maintenance.shtml');
+                exit();
+            default:
+                header('Location: 500.shtml');
+                exit();
+        }
     }
 }
